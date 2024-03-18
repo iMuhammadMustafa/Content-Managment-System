@@ -6,11 +6,14 @@ export default class UsersRepo {
   }
 
   static async getUsersDto() {
-    return await User.find().select("_id username role createdAt updatedAt");
+    return await User.find().select("_id username email role createdAt updatedAt");
   }
 
   static async getUserById(id) {
     return await User.findById(id);
+  }
+  static async getUserDtoById(id) {
+    return await User.findById(id).select("_id username email role createdAt updatedAt");
   }
 
   static async getUserByEmail(email) {
@@ -26,7 +29,6 @@ export default class UsersRepo {
   }
 
   static async deleteUser(id) {
-    return;
     await User.findByIdAndDelete(id);
   }
 }

@@ -39,4 +39,4 @@ import adminRouter from "./Routes/AdminRoutes.js";
 app.use(homepageRouter);
 app.use(authRouter);
 app.use(postsRouter);
-app.use(adminRouter);
+app.use("/admin", adminRouter);

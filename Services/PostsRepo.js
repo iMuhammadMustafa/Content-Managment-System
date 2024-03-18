@@ -6,11 +6,16 @@ export default class PostsRepo {
   }
 
   static async getPostsDto() {
-    return await Post.find().select("title content published userId category tags createdAt updatedAt rating");
+    return await Post.find().select("_id title content published userId category tags createdAt updatedAt rating");
   }
 
   static async getPostById(id) {
     return await Post.findById(id);
+  }
+  static async getPostDtoById(id) {
+    return await Post.findById(id).select(
+      "_id title content published userId category tags createdAt updatedAt rating"
+    );
   }
 
   static async createPost(post) {

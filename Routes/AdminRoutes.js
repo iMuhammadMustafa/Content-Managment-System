@@ -3,20 +3,11 @@ const router = express.Router();
 
 import PostsRepo from "../Services/PostsRepo.js";
 import UsersRepo from "../Services/UsersRepo.js";
-import User from "../Models/User.js";
+import CommentsRepo from "../Services/CommentsRepo.js";
+// <!-- <%- include('../partials/header.ejs') %> -->
 
-router.get("/", async (req, res) => {
-  const user = {
-    email: "",
-    password: "",
-  };
-
-  await UsersRepo.createUser(user);
-
-  const users = await UsersRepo.getUsers();
-
-  res.send(users);
-  //   res.send("admin.html");
+router.get("/admin/posts", async (req, res) => {
+  res.render("admin/posts.ejs", { title: "Users Posts" });
 });
 
 export default router;

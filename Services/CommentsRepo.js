@@ -1,6 +1,6 @@
 import Comment from "../Models/Comment.js";
 
-export default class CommentRepo {
+export default class CommentsRepo {
   static async getComments() {
     return await Comment.find();
   }

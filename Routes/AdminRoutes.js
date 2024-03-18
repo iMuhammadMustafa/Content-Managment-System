@@ -5,6 +5,10 @@ import PostsRepo from "../Services/PostsRepo.js";
 import UsersRepo from "../Services/UsersRepo.js";
 import CommentsRepo from "../Services/CommentsRepo.js";
 
+router.get("/", (req, res) => {
+  res.render("admin/index.ejs", { title: "Admin" });
+});
+
 router.get("/users", async (req, res) => {
   const users = await UsersRepo.getUsersDto();
 

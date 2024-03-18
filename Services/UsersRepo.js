@@ -5,6 +5,10 @@ export default class UsersRepo {
     return await User.find();
   }
 
+  static async getUsersDto() {
+    return await User.find().select("_id username role createdAt updatedAt");
+  }
+
   static async getUserById(id) {
     return await User.findById(id);
   }

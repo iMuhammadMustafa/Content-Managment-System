@@ -4,6 +4,9 @@ export default class CommentsRepo {
   static async getComments() {
     return await Comment.find();
   }
+  static async getCommentsDto() {
+    return await Comment.find().select("content userId postId createdAt updatedAt rating");
+  }
 
   static async getCommentById(id) {
     return await Comment.findById(id).populate("userId").populate("postId");

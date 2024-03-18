@@ -7,7 +7,11 @@ import CommentsRepo from "../Services/CommentsRepo.js";
 // <!-- <%- include('../partials/header.ejs') %> -->
 
 router.get("/admin/posts", async (req, res) => {
-  res.render("admin/posts.ejs", { title: "Users Posts" });
+  const users = await UsersRepo.getUsersDto();
+  const posts = await PostsRepo.getPostsDto();
+  const comments = await CommentsRepo.getCommentsDto();
+
+  res.render("admin/posts.ejs", { title: "Users Posts", posts, users, comments });
 });
 
 export default router;

@@ -1,50 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="/Styles/authentification.css">
-</head>
-<body>
+    <link rel="stylesheet" href="/Styles/authentification.css" />
+  </head>
+  <body>
     <main>
-        <div class="container">
-            <div class="forms-container">
-                <form id="login-form" class="login-form" action="/auth/login" method="post">
-                    <h2>Login</h2>
-                    <input type="text" placeholder="Username" name="username" required>
-                    <input type="password" placeholder="Password" name="password" required>
-                    <button type="submit">Login</button>
-                    <p class="message">Don't have an account? <a href="#" id="register">Register</a></p>
-                </form>
-                <form id="register-form" class="register-form" action="/auth/register" method="post">
-                    <h2>Register</h2>
-                    <input type="text" placeholder="Username" name="username" required>
-                    <input type="email" placeholder="Email" name="email" required>
-                    <input type="password" placeholder="Password" name="password" required>
-                    <button type="submit">Register</button>
-                    <p class="message">Already have an account? <a href="#" id="login">Login</a></p>
-                </form>
-            </div>
-            <div class="panels-container">
-                <div class="panel right-panel" id="newhere">
-                    <div class="content">
-                        <h3>New here?</h3>
-                        <p>Register now and start exploring!</p>
-                    </div>
-                    <img src="img/log.svg" class="image" alt="">
-                </div>
-                <div class="panel right-panel" id="oneofus">
-                    <div class="content">
-                        <h3>One of us?</h3>
-                        <p>Login to your account.</p>
-                    </div>
-                    <img src="img/register.svg" class="image" alt="">
-                </div>
-            </div>
+      <div class="container">
+        <div class="forms-container">
+          <form id="login-form" class="login-form" action="/auth/login" method="post">
+            <h2>Login</h2>
+            <input type="text" placeholder="Username" name="username" required />
+            <input type="password" placeholder="Password" name="password" required />
+            <button type="submit">Login</button>
+            <p class="message">Don't have an account? <a href="#" id="register">Register</a></p>
+          </form>
+          <form id="register-form" class="register-form" action="/auth/register" method="post">
+            <h2>Register</h2>
+            <input type="text" placeholder="Username" name="username" required />
+            <input type="email" placeholder="Email" name="email" required />
+            <input type="password" placeholder="Password" name="password" required />
+            <button type="submit">Register</button>
+            <p class="message">Already have an account? <a href="#" id="login">Login</a></p>
+          </form>
         </div>
+        <div class="panels-container">
+          <div class="panel right-panel" id="newhere">
+            <div class="content">
+              <h3>New here?</h3>
+              <p>Register now and start exploring!</p>
+            </div>
+            <img src="img/log.svg" class="image" alt="" />
+          </div>
+          <div class="panel right-panel" id="oneofus">
+            <div class="content">
+              <h3>One of us?</h3>
+              <p>Login to your account.</p>
+            </div>
+            <img src="img/register.svg" class="image" alt="" />
+          </div>
+        </div>
+      </div>
 
-        <script src="/authentication.js"></script>
+      <script src="/authentication.js"></script>
     </main>
-</body>
+  </body>
 </html>

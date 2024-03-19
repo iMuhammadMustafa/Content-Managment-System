@@ -10,43 +10,25 @@
       <section class="top-posts">
         <h2>Top Posts This Week</h2>
         <div class="post-container">
+          <% for(let i = 0; i < topPosts.length; i++) { %>
           <div class="post">
-            <h3>Post Title 1</h3>
-            <p>Post content goes here...</p>
+            <h3><%= topPosts[i].title %></h3>
+            <p><%= topPosts[i].content%></p>
             <a href="#" class="read-more">Read More</a>
           </div>
-          <div class="post">
-            <h3>Post Title 2</h3>
-            <p>Post content goes here...</p>
-            <a href="#" class="read-more">Read More</a>
-          </div>
-          <div class="post">
-            <h3>Post Title 2</h3>
-            <p>Post content goes here...</p>
-            <a href="#" class="read-more">Read More</a>
-          </div>
-          <div class="post">
-            <h3>Post Title 2</h3>
-            <p>Post content goes here...</p>
-            <a href="#" class="read-more">Read More</a>
-          </div>
-          <!-- Add more posts here -->
+          <% } %>
         </div>
       </section>
       <section class="new-posts">
         <h2>New Posts</h2>
         <div class="post-container">
-          <div class="post">
-            <h3>Post Title 3</h3>
-            <p>Post content goes here...</p>
-            <a href="#" class="read-more">Read More</a>
-          </div>
-          <div class="post">
-            <h3>Post Title 4</h3>
-            <p>Post content goes here...</p>
-            <a href="#" class="read-more">Read More</a>
-          </div>
-          <!-- Add more new posts here -->
+          <% for(let i = 0; i < posts.length; i++) { %>
+            <div class="post">
+              <h3><%= posts[i].title %></h3>
+              <p><%= posts[i].content%></p>
+              <a href="#" class="read-more">Read More</a>
+            </div>
+            <% } %>
         </div>
       </section>
     </main>

@@ -1,18 +1,40 @@
 @import url("./navbar.css");
+@import url("./sidebar.css");
 
-:root {
-  /* --background-color: #353535; */
+/* :root {
+  --background-color: #353535;
   --primary: #3c6e71;
   --secondary: #284b63;
   --primary-text: #ffffff;
   --secondary-text: #d9d9d9;
   --text-muted: #555555;
+} */
+*,
+::after,
+::before {
+  box-sizing: border-box;
+}
+* {
+  outline: 0;
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
 }
 
 body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 main {

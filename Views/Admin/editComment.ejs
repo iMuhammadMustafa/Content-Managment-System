@@ -1,0 +1,25 @@
+<h1>Edit Comment</h1>
+
+<form action="/admin/comments/edit" method="POST">
+  <input type="hidden" name="_id" value="<%= comment._id %>" />
+  <div>
+    <label for="postId">Post Id</label>
+    <input type="text" id="postId" name="postId" value="<%= comment.postId %>" disabled />
+  </div>
+  <div>
+    <label for="content">Content</label>
+    <textarea id="content" name="content" rows="4" cols="50"><%= comment.content %></textarea>
+  </div>
+  <div>
+    <label for="userId">Author Id</label>
+    <input type="text" id="userId" name="userId" value="<%= comment.userId %>" disabled />
+  </div>
+
+  <div>
+    <label for="rating">Rating</label>
+    <input type="number" id="rating" name="rating" value="<%= comment.rating %>" disabled />
+  </div>
+  <button type="submit">Edit Comment</button>
+</form>
+
+<a href="/admin/comments">Back to Comments</a>

@@ -1,0 +1,44 @@
+<h1>Posts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>_id</th>
+      <th>Title</th>
+      <th>Published</th>
+      <th>Author Id</th>
+      <th>Category</th>
+      <th>CreatedAt</th>
+      <th>UpdatedAt</th>
+      <th>Rating</th>
+      <th>Actions</th>
+    </tr>
+    </tr>
+  </thead>
+  <tbody>
+    <% posts.forEach((post) => { %>
+    <tr>
+        <td>
+            <a href=""><%= post._id %></a>
+        </td>
+        <td><%= post.title %></td>
+        <td>
+            <input type="checkbox" id="published" name="published" value="<%= post.published %>" checked  disabled/>
+        </td>
+        <td>
+            <a href=""><%= post.userId %></a>
+        </td>
+        <td><%= post.category %></td>
+        <td><%= post.createdAt.toLocaleDateString('en-GB') %> <%= post.createdAt.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' }) %></td>
+        <td><%= post.updatedAt.toLocaleDateString('en-GB') %> <%= post.updatedAt.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' }) %></td>
+        
+        <td><%= post.rating %></td>
+
+      <td>
+        <a href="/admin/posts/edit/<%= post.id %>">Edit</a>
+        <a href="/admin/posts/delete/<%= post.id %>">Delete</a>
+      </td>
+    </tr>
+    <% }); %>
+  </tbody>
+</table>

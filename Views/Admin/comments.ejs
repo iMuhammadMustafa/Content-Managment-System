@@ -1,0 +1,39 @@
+<h1>Comments</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>_id</th>
+      <th>Post Id</th>
+      <th>Rating</th>
+      <th>CreatedAt</th>
+      <th>UpdatedAt</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% comments.forEach((comment) => { %>
+    <tr>
+      <td>
+        <a href=""><%= comment._id %></a>
+      </td>
+      <td>
+        <a href=""><%= comment.postId %></a>
+      </td>
+      <td><%= comment.rating %></td>
+      <td>
+        <%= comment.createdAt.toLocaleDateString('en-GB') %> <%= comment.createdAt.toLocaleTimeString('en-GB', { hour:
+        '2-digit', minute: '2-digit' }) %>
+      </td>
+      <td>
+        <%= comment.updatedAt.toLocaleDateString('en-GB') %> <%= comment.updatedAt.toLocaleTimeString('en-GB', { hour:
+        '2-digit', minute: '2-digit' }) %>
+      </td>
+      <td>
+        <a href="/admin/comments/edit/<%= comment._id %>">Edit</a>
+        <a href="/admin/comments/delete/<%= comment._id %>">Delete</a>
+      </td>
+    </tr>
+    <% }); %>
+  </tbody>
+</table>

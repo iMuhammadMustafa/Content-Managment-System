@@ -2,7 +2,6 @@ import mongoose from "mongoose";
 const { Schema, model } = mongoose;
 
 const postSchema = new Schema({
-  id: String,
   title: String,
   content: String,
   published: Boolean,
@@ -15,4 +14,5 @@ const postSchema = new Schema({
 });
 
 const Post = model("Post", postSchema);
+
 export default Post;

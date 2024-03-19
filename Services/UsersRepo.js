@@ -20,6 +20,10 @@ export default class UsersRepo {
     return await User.findOne({ email: email });
   }
 
+  static async getUserByUsername(username) {
+    return await User.findOne({ username: username });
+  }
+
   static async createUser(user) {
     return await User.create(user);
   }

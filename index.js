@@ -39,6 +39,6 @@ import { addUserFromCookie } from "./Middlewares/authMiddleware.js";
 
 app.use(addUserFromCookie);
 app.use(homepageRouter);
-app.use(authRouter);
+app.use("/auth",authRouter);
 app.use(postsRouter);
 app.use("/admin", adminRouter);

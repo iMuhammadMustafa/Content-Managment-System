@@ -11,6 +11,7 @@ const postSchema = new Schema({
   createdAt: { type: Date, default: Date.now },
   updatedAt: { type: Date, default: Date.now },
   rating: Number,
+  savedBy: [{ type: Schema.Types.ObjectId, ref: "User" }],
 });
 
 const Post = model("Post", postSchema);

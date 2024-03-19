@@ -1,31 +1,37 @@
 <h1>Posts</h1>
 
-<table>
-  <thead>
+<div class="table-container">
+
+  <table class="table">
+    <thead>
     <tr>
-      <th>_id</th>
+      <th>Id</th>
       <th>Title</th>
       <th>Published</th>
-      <th>Author Id</th>
+      <th>User Id</th>
       <th>Category</th>
       <th>CreatedAt</th>
       <th>UpdatedAt</th>
       <th>Rating</th>
       <th>Actions</th>
     </tr>
-    </tr>
-  </thead>
-  <tbody>
+  </tr>
+</thead>
+<tbody>
     <% posts.forEach((post) => { %>
     <tr>
-        <td>
-            <a href=""><%= post._id %></a>
-        </td>
-        <td><%= post.title %></td>
-        <td>
-            <input type="checkbox" id="published" name="published" value="<%= post.published %>" checked  disabled/>
-        </td>
-        <td>
+      <td>
+        <a href=""><%= post._id %></a>
+      </td>
+      <td><%= post.title %></td>
+      <td>
+        <% if (post.published) { %>
+          <i class="fa-solid fa-check" ></i>
+        <% } else { %>
+          <i class="fa-solid fa-times" ></i>
+        <% } %>
+      </td>
+      <td>
             <a href=""><%= post.userId %></a>
         </td>
         <td><%= post.category %></td>
@@ -33,12 +39,16 @@
         <td><%= post.updatedAt.toLocaleDateString('en-GB') %> <%= post.updatedAt.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' }) %></td>
         
         <td><%= post.rating %></td>
-
-      <td>
-        <a href="/admin/posts/edit/<%= post.id %>">Edit</a>
-        <a href="/admin/posts/delete/<%= post.id %>">Delete</a>
-      </td>
+        
+        <td>
+          <a href="/admin/posts/edit/<%= post.id %>" title="Edit">
+            <i class="fa-regular fa-pen-to-square"></i>
+          <a href="/admin/posts/delete/<%= post.id %>" title="Delete">
+            <i class="fa-solid fa-trash-can"></i>
+        </td>
     </tr>
     <% }); %>
   </tbody>
 </table>
+
+</div>

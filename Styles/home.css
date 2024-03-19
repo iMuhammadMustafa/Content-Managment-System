@@ -1,5 +1,6 @@
 @import url("./navbar.css");
 @import url("./sidebar.css");
+@import url("./table.css");
 
 /* :root {
   --background-color: #353535;
@@ -39,7 +40,8 @@ ul {
 
 main {
   padding: 20px;
-  margin: auto;
+  /* margin: auto; */
+  width: 100%;
 }
 
 section {

@@ -1,5 +1,5 @@
-:root {
-  --background-color: #353535;
+.navbar-container {
+  --background-color: #2b2b2b;
   --primary: #3c6e71;
   --secondary: #284b63;
   --primary-text: #ffffff;
@@ -12,6 +12,7 @@
   position: sticky;
   top: 0;
   z-index: 1000;
+  height: 50px;
 }
 .navbar-container a {
   padding: 5px 5px;

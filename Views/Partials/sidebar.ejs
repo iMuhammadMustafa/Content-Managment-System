@@ -18,7 +18,7 @@
             </a>
           </li>
           <li class="">
-            <a class="" href="/admin/posts/<%=user._id%>"> 
+            <a class="" href="/admin/posts/<%=user._id%>">
               <i class="fa-solid fa-blog"></i>
               <span>My Posts</span>
             </a>
@@ -56,15 +56,20 @@
         </ul>
       </li>
 
+      <% if (user && (user.role === "Admin" || user.role === "Editor")) { %>
+
       <li>
         <ul class="nav-group">
           <li class="nav-small-cap">--- Admin</li>
+
+          <% if (user && user.role === "Admin") { %>
           <li class="">
             <a class="" href="./users">
               <i class="fa-solid fa-users"></i>
               <span>Users</span>
             </a>
           </li>
+          <% } %>
           <li class="">
             <a class="" href="./posts">
               <i class="fa-solid fa-signs-post"></i>
@@ -79,6 +84,7 @@
           </li>
         </ul>
       </li>
+      <% } %>
 
       <li class="active">
         <a class="" href="index.html">

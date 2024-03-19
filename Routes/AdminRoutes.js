@@ -12,7 +12,7 @@ router.get("/", (req, res) => {
 router.get("/users", async (req, res) => {
   const users = await UsersRepo.getUsersDto();
 
-  res.render("admin/users.ejs", { title: "Users", users, layout: "Layouts/admin.ejs" });
+  res.render("Admin/users.ejs", { title: "Users", users, layout: "Layouts/admin.ejs" });
 });
 router.get("/users/edit/:userId", async (req, res) => {
   const userId = req.params.userId;
@@ -20,7 +20,7 @@ router.get("/users/edit/:userId", async (req, res) => {
   const user = userId ? await UsersRepo.getUserDtoById(userId) : null;
   if (!user) return res.status(404).send("User not found");
 
-  res.render("admin/editUser.ejs", { title: "Edit User", user, layout: "Layouts/admin.ejs" });
+  res.render("Admin/editUser.ejs", { title: "Edit User", user, layout: "Layouts/admin.ejs" });
 });
 router.post("/users/edit", async (req, res) => {
   const user = req.body;
@@ -43,7 +43,7 @@ router.get("/users/delete/:userId", async (req, res) => {
 router.get("/posts", async (req, res) => {
   const posts = await PostsRepo.getPostsDto();
 
-  res.render("admin/posts.ejs", { title: "Posts", posts, layout: "Layouts/admin.ejs" });
+  res.render("Admin/posts.ejs", { title: "Posts", posts, layout: "Layouts/admin.ejs" });
 });
 router.get("/posts/edit/:postId", async (req, res) => {
   const postId = req.params.postId;
@@ -52,12 +52,14 @@ router.get("/posts/edit/:postId", async (req, res) => {
 
   const post = await PostsRepo.getPostDtoById(postId);
 
-  res.render("admin/editPost.ejs", { title: "Edit Post", post, layout: "Layouts/admin.ejs" });
+  res.render("Admin/editPost.ejs", { title: "Edit Post", post, layout: "Layouts/admin.ejs" });
 });
 router.post("/posts/edit", async (req, res) => {
   const post = req.body;
   const postId = post._id;
 
+  if (post.published === "on") post.published = true;
+  else post.published = false;
   if (!postId) return res.status(404).send("Post not found");
 
   await PostsRepo.updatePost(post._id, post);
@@ -75,7 +77,7 @@ router.get("/posts/delete/:postId", async (req, res) => {
 router.get("/comments", async (req, res) => {
   const comments = await CommentsRepo.getCommentsDto();
 
-  res.render("admin/comments.ejs", { title: "Comments", comments, layout: "Layouts/admin.ejs" });
+  res.render("Admin/comments.ejs", { title: "Comments", comments, layout: "Layouts/admin.ejs" });
 });
 
 router.get("/comments/edit/:commentId", async (req, res) => {
@@ -84,7 +86,7 @@ router.get("/comments/edit/:commentId", async (req, res) => {
   const comment = commentId ? await CommentsRepo.getCommentDtoById(commentId) : null;
   if (!comment) return res.status(404).send("Comment not found");
 
-  res.render("admin/editComment.ejs", { title: "Edit Comment", comment, layout: "Layouts/admin.ejs" });
+  res.render("Admin/editComment.ejs", { title: "Edit Comment", comment, layout: "Layouts/admin.ejs" });
 });
 router.post("/comments/edit", async (req, res) => {
   const comment = req.body;

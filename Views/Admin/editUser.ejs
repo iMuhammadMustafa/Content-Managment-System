@@ -1,28 +1,28 @@
 <h1><%= title %></h1>
 
-<form action="/admin/users/edit" method="post">
-  <input type="text" hidden name="_id" value="<%= user._id %>" />
-  <div>
-    <label for="username">Username</label>
-    <input type="text" name="username" value="<%= user.username %>" />
-  </div>
-  <div>
-    <label for="email">Email</label>
-    <input type="text" name="email" value="<%= user.email %>" />
-  </div>
-  <div>
-    <label for="role">Role</label>
-    <select name="role" id="role">
-      <option value="admin" <%= user.role === 'admin'? 'selected': '' %> >Admin</option>
-      <option value="editor" <%= user.role === 'editor'? 'selected': '' %> >Editor</option>
-      <option value="user" <%= user.role === 'user'? 'selected': '' %> >User</option>
-      <option value="guest" <%= user.role === 'guest'? 'selected': '' %> >Guest</option>
-    </select>
-  </div>
-  <div>
-    <input type="submit" value="Save" />
-  </div>
-</form>
-
-<a href="/admin/users">Back</a>
-
+<div class="form-wrapper">
+  <form action="/admin/users/edit" method="post">
+    <input type="text" hidden name="_id" value="<%= user._id %>" />
+    <div class="form-input">
+      <label for="username">Username</label>
+      <input type="text" name="username" value="<%= user.username %>" />
+    </div>
+    <div class="form-input">
+      <label for="email">Email</label>
+      <input  type="text" name="email" value="<%= user.email %>" />
+    </div>
+    <div class="form-input">
+      <label for="role">Role</label>
+      <select name="role" id="role">
+        <option value="admin" <%= user.role === 'admin'? 'selected': '' %> >Admin</option>
+        <option value="editor" <%= user.role === 'editor'? 'selected': '' %> >Editor</option>
+        <option value="user" <%= user.role === 'user'? 'selected': '' %> >User</option>
+        <option value="guest" <%= user.role === 'guest'? 'selected': '' %> >Guest</option>
+      </select>
+    </div>
+    <div class="form-input">
+      <input type="submit" value="Save" />
+      <a id="back" href="/admin/users">Back</a>
+    </div>
+  </form>
+</div>

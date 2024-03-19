@@ -29,4 +29,15 @@ export default class PostsRepo {
   static async deletePost(id) {
     return await Post.findByIdAndDelete(id);
   }
+
+  static async getTopPostsThisWeek(){
+    const today = new Date();
+    const startOfWeek = new Date(today.getFullYear(), today.getMonth(), today.getDate() - today.getDay());
+    const endOfWeek = new Date(today.getFullYear(), today.getMonth(), today.getDate() - today.getDay() + 6);
+    
+      return await Post.find({
+        createdAt: { $gte: startOfWeek, $lte: endOfWeek }
+      }).sort({ rating: -1 }).limit(10); // Example: Sort by likes and limit to top 10 posts
+  
+  }
 }

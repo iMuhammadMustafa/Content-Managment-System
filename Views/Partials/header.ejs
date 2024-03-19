@@ -2,7 +2,7 @@
   <nav class="navbar">
     <div>
       <a class="navbar-brand" href="/">
-        <img src="logo.png" alt="Logo" />
+        <img src="" alt="Logo" />
       </a>
       <a href="/">Home</a>
       <a href="/posts">Posts</a>
@@ -13,7 +13,7 @@
       <button type="submit">Search</button>
     </div>
     <div class="navbar-buttons">
-      <% if (!user) { %>
+      <% if (user) { %>
       <a href="/profile">Profile</a>
       <a href="/myposts">My Posts</a>
       <% } else { %>

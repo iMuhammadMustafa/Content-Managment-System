@@ -13,7 +13,7 @@
       <button type="submit">Search</button>
     </div>
     <div class="navbar-buttons">
-      <% if (!user) { %>
+      <% if (user) { %>
       <a href="/profile">Profile</a>
       <a href="/myposts">My Posts</a>
       <% } else { %>

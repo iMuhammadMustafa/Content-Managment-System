@@ -7,14 +7,14 @@ router.get("/",(req, res) =>{
     res.render("authentification.html", {title: "Authentication"});
 })
 
-router.get("/login", async (req, res) => {
+router.post("/login", async (req, res) => {
     let username = req.body.username;
     let password = req.body.password;
     let user = username ? await UsersRepo.getUserByUsername(username) : null;
     if(!user || user.password !== password) {
         res.status(404).send("Username or password is incorrect");
     }
-    res.render("home.html",{user : user});
+    res.render("home.html",{user : user, title:"Home"});
 })
 
 router.post("/register", async (req, res) => {
@@ -25,7 +25,7 @@ router.post("/register", async (req, res) => {
 
     let user ={username, email, password, role : null , createdAt : currentDate, updatedAt : null};
     let userCreated =  await UsersRepo.createUser(user);
-    res.render("home.html",{user : userCreated});
+    res.render("home.html",{user : userCreated, title : "Home"});
 });
 
 export default router;

@@ -1,32 +1,35 @@
 <h1>Edit Post</h1>
 
-<form action="/admin/posts/edit" method="POST">
-  <input type="hidden" name="_id" value="<%= post._id %>" />
-  <div>
-    <label for="title">Title</label>
-    <input type="text" id="title" name="title" value="<%= post.title %>" />
-  </div>
-  <div>
-    <div>
-      <label for="content">Content</label>
-      <textarea id="content" name="content" rows="4" cols="50"><%= post.content %></textarea>
+<div class="form-wrapper">
+  <form action="/admin/posts/edit" method="POST">
+    <input type="hidden" name="_id" value="<%= post._id %>" />
+    <div class="form-input">
+      <label for="title">Title</label>
+      <input type="text" id="title" name="title" value="<%= post.title %>" />
     </div>
-    <label for="published">Published</label>
-    <input type="checkbox" id="published" name="published" value="<%= post.published %>" checked />
-  </div>
-  <div>
-    <label for="userId">Author Id</label>
-    <input type="text" id="userId" name="userId" value="<%= post.userId %>" disabled />
-  </div>
-  <div>
-    <label for="category">Category</label>
-    <input type="text" id="category" name="category" value="<%= post.category %>" />
-  </div>
-  <div>
-    <label for="rating">Rating</label>
-    <input type="number" id="rating" name="rating" value="<%= post.rating %>" disabled />
-  </div>
-  <button type="submit">Edit Post</button>
-</form>
-
-<a href="/admin/posts">Back to Posts</a>
+    <div class="form-input">
+      <div>
+        <label for="content">Content</label>
+        <textarea id="content" name="content" rows="4" cols="50"><%= post.content %></textarea>
+      </div>
+      <label for="published">Published</label>
+      <input type="checkbox" id="published" name="published" <%= post.published ? "checked" : "" %>/>
+    </div>
+    <div class="form-input">
+      <label for="userId">Author Id</label>
+      <input type="text" id="userId" name="userId" value="<%= post.userId %>" disabled />
+    </div>
+    <div class="form-input">
+      <label for="category">Category</label>
+      <input type="text" id="category" name="category" value="<%= post.category %>" />
+    </div>
+    <div class="form-input">
+      <label for="rating">Rating</label>
+      <input type="number" id="rating" name="rating" value="<%= post.rating %>" disabled />
+    </div>
+    <div class="form-input">
+      <input type="submit" value="Save" />
+      <a id="back" href="/admin/posts">Back</a>
+    </div>
+  </form>
+</div>

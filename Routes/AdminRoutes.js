@@ -58,6 +58,8 @@ router.post("/posts/edit", async (req, res) => {
   const post = req.body;
   const postId = post._id;
 
+  if (post.published === "on") post.published = true;
+  else post.published = false;
   if (!postId) return res.status(404).send("Post not found");
 
   await PostsRepo.updatePost(post._id, post);

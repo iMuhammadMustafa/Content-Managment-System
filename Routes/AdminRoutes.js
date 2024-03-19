@@ -6,7 +6,7 @@ import UsersRepo from "../Services/UsersRepo.js";
 import CommentsRepo from "../Services/CommentsRepo.js";
 
 router.get("/", (req, res) => {
-  res.render("admin/index.ejs", { title: "Admin" });
+  res.render("Admin/index.ejs", { title: "Admin" });
 });
 
 router.get("/users", async (req, res) => {

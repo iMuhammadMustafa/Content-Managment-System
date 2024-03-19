@@ -16,8 +16,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-app.use("/public", express.static(__dirname + "Public"));
-app.use("/styles", express.static(__dirname + "Styles"));
+app.use("/public", express.static(path.join(__dirname, "Public")));
+app.use("/styles", express.static(path.join(__dirname, "Styles")));
 
 app.listen(3000, () => {
   console.log("Your Server is running on 3000");
@@ -35,7 +35,9 @@ import homepageRouter from "./Routes/HomepageRoutes.js";
 import authRouter from "./Routes/AuthRoutes.js";
 import postsRouter from "./Routes/PostsRoutes.js";
 import adminRouter from "./Routes/AdminRoutes.js";
+import { addUserFromCookie } from "./Middlewares/authMiddleware.js";
 
+app.use(addUserFromCookie);
 app.use(homepageRouter);
 app.use(authRouter);
 app.use(postsRouter);

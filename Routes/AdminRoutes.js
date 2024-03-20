@@ -6,6 +6,8 @@ import UsersRepo from "../Services/UsersRepo.js";
 import CommentsRepo from "../Services/CommentsRepo.js";
 
 router.get("/", (req, res) => {
+  if (!req.cookies.user) return res.redirect("/auth");
+
   res.render("Admin/index.ejs", { title: "Admin", layout: "Layouts/admin.ejs" });
 });
 

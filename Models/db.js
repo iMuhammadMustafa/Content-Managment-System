@@ -2,6 +2,7 @@ import mongoose from "mongoose";
 import User from "./User.js";
 import Post from "./Post.js";
 import Comment from "./Comment.js";
+import Roles from "./Roles.js";
 
 const dbConnection = async () => {
   try {
@@ -18,7 +19,7 @@ const users = [
     username: "user1",
     email: "email",
     password: "password",
-    role: "admin",
+    role: Roles.Admin,
     createdAt: new Date(),
     updatedAt: new Date(),
   },
@@ -26,7 +27,7 @@ const users = [
     username: "user2",
     email: "email",
     password: "password",
-    role: "user",
+    role: Roles.User,
     createdAt: new Date(),
     updatedAt: new Date(),
   },
@@ -34,7 +35,15 @@ const users = [
     username: "user3",
     email: "email",
     password: "password",
-    role: "user",
+    role: Roles.Editor,
+    createdAt: new Date(),
+    updatedAt: new Date(),
+  },
+  {
+    username: "user4",
+    email: "email",
+    password: "password",
+    role: Roles.Guest,
     createdAt: new Date(),
     updatedAt: new Date(),
   },

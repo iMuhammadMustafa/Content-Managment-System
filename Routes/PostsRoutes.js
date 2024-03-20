@@ -10,7 +10,7 @@ router.get("/post/:id", (req, res) => {
 });
 
 // posts per user
-router.get('/admin/posts/:userId', async (req, res) => {
+router.get("/admin/posts/:userId", async (req, res) => {
   const userId = req.params.userId;
   console.log(userId, "here");
   try {
@@ -22,7 +22,7 @@ router.get('/admin/posts/:userId', async (req, res) => {
 });
 
 // comments per user
-router.get('/admin/comments/:userId', async (req, res) => {
+router.get("/admin/comments/:userId", async (req, res) => {
   const userId = req.params.userId;
   try {
     const comments = await Comment.find({ userId: userId });
@@ -33,14 +33,16 @@ router.get('/admin/comments/:userId', async (req, res) => {
 });
 
 // saved posts
-router.get('/admin/savedPosts/:userId', async (req, res) => {
+router.get("/admin/savedPosts/:userId", async (req, res) => {
   const userId = req.params.userId;
+  console.log(userId);
   try {
-    const savedPosts = await Post.find({ savedBy: userId});
+    const savedPosts = await Post.find({ savedBy: { $in: [`${userId}`] } });
+    console.log(savedPosts);
     res.json(savedPosts);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
-})
+});
 
 export default router;

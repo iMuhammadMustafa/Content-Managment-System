@@ -45,6 +45,7 @@
   display: block;
 }
 .form-input input,
+.form-input textarea,
 .form-input #back {
   width: 100%;
   height: 50px;
@@ -107,4 +108,7 @@
   background-color: #f2f2f2;
   color: #b3b3b3;
   cursor: not-allowed;
+}
+.form-input textarea {
+  height: 300px;
 }

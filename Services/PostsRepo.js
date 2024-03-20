@@ -30,25 +30,25 @@ export default class PostsRepo {
     return await Post.findByIdAndDelete(id);
   }
 
-  static async getTopPostsThisWeek(){
+  static async getTopPostsThisWeek() {
     const today = new Date();
     const startOfWeek = new Date(today.getFullYear(), today.getMonth(), today.getDate() - today.getDay());
     const endOfWeek = new Date(today.getFullYear(), today.getMonth(), today.getDate() - today.getDay() + 6);
-    
-      return await Post.find({
-        createdAt: { $gte: startOfWeek, $lte: endOfWeek }
-      }).sort({ rating: -1 }).limit(10); // Example: Sort by likes and limit to top 10 posts
-  
+
+    return await Post.find({
+      createdAt: { $gte: startOfWeek, $lte: endOfWeek },
+    })
+      .sort({ rating: -1 })
+      .limit(4); // Example: Sort by likes and limit to top 10 posts
   }
 
-  static async searchPosts(search){
+  static async searchPosts(search) {
     return await Post.find({
       $or: [
-        { title: { $regex: search, $options: 'i' } },
-        { category: { $regex: search, $options: 'i' } }, 
-        { tags: { $regex: search, $options: 'i' } } 
-      ]
+        { title: { $regex: search, $options: "i" } },
+        { category: { $regex: search, $options: "i" } },
+        { tags: { $regex: search, $options: "i" } },
+      ],
     });
   }
-
 }

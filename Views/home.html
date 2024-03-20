@@ -6,9 +6,14 @@
     <title>Document</title>
   </head>
   <body>
-    <main>
+    <main class="homepage-main">
       <% if(user){ %>
-      <button class="create-button" onclick="window.location.href='/post/create/<%=user._id%>'" style="margin-bottom: 20px;">Create Post</button>
+      <button
+        class="create-button"
+        onclick="window.location.href='/post/create/<%=user._id%>'"
+        style="margin-bottom: 20px">
+        Create Post
+      </button>
       <%} %>
       <section class="top-posts">
         <h2>Top Posts This Week</h2>
@@ -16,7 +21,7 @@
           <% for(let i = 0; i < topPosts.length; i++) { %>
           <div class="post">
             <h3><%= topPosts[i].title %></h3>
-            <p><%= topPosts[i].content%></p>
+            <p class="top-post-content"><%= topPosts[i].content%></p>
             <a href="/post/<%= posts[i]._id %>" class="read-more">Read More</a>
           </div>
           <% } %>
@@ -26,12 +31,12 @@
         <h2>New Posts</h2>
         <div class="post-container">
           <% for(let i = 0; i < posts.length; i++) { %>
-            <div class="post">
-              <h3><%= posts[i].title %></h3>
-              <p><%= posts[i].content%></p>
-              <a href="/post/<%= posts[i]._id %>" class="read-more">Read More</a>
-            </div>
-            <% } %>
+          <div class="post">
+            <h3><%= posts[i].title %></h3>
+            <p class="new-post-content"><%= posts[i].content%></p>
+            <a href="/post/<%= posts[i]._id %>" class="read-more">Read More</a>
+          </div>
+          <% } %>
         </div>
       </section>
     </main>

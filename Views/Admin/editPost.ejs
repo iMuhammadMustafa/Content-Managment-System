@@ -8,13 +8,14 @@
       <input type="text" id="title" name="title" value="<%= post.title %>" />
     </div>
     <div class="form-input">
-      <div>
-        <label for="content">Content</label>
-        <textarea id="content" name="content" rows="4" cols="50"><%= post.content %></textarea>
-      </div>
+      <label for="content">Content</label>
+      <textarea id="content" name="content" rows="4" cols="50"><%= post.content %></textarea>
+    </div>
+    <div class="form-input">
       <label for="published">Published</label>
       <input type="checkbox" id="published" name="published" <%= post.published ? "checked" : "" %>/>
     </div>
+
     <div class="form-input">
       <label for="userId">Author Id</label>
       <input type="text" id="userId" name="userId" value="<%= post.userId %>" disabled />

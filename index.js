@@ -5,7 +5,7 @@ import "dotenv/config";
 import expressEjsLayouts from "express-ejs-layouts";
 import path from "path";
 import { fileURLToPath } from "url";
-import dbConnection, {seedData} from "./Models/db.js";
+import dbConnection, { seedData } from "./Models/db.js";
 
 const __filename = fileURLToPath(import.meta.url); // get the resolved path to the file
 const __dirname = path.dirname(__filename); // get the name of the directory
@@ -39,6 +39,6 @@ import { addUserFromCookie } from "./Middlewares/authMiddleware.js";
 
 app.use(addUserFromCookie);
 app.use(homepageRouter);
-app.use("/auth",authRouter);
+app.use("/auth", authRouter);
 app.use(postsRouter);
-app.use("/admin", adminRouter);
+app.use("/profile", adminRouter);

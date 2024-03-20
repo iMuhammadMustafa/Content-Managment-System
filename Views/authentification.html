@@ -5,46 +5,74 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="/Styles/authentification.css" />
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const loginForm = document.getElementById('login-form');
+            const registerForm = document.getElementById('register-form');
+            const loginLink = document.getElementById('login');
+            const registerLink = document.getElementById('register');
+            const newHere = document.getElementById('newhere');
+            const oneofus = document.getElementById('oneofus');
+    
+            // Display the login form by default
+            loginForm.style.display = 'flex';
+            registerForm.style.display = 'none';
+    
+            oneofus.style.display = 'flex';
+            newHere.style.display = 'none';
+    
+            // Switch to register form when clicking "Register" link
+            loginLink.addEventListener('click', function() {
+                loginForm.style.display = 'flex';
+                registerForm.style.display = 'none';
+                oneofus.style.display = 'flex';
+                newHere.style.display = 'none';
+            });
+    
+            // Switch to login form when clicking "Login" link
+            registerLink.addEventListener('click', function() {
+                loginForm.style.display = 'none';
+                registerForm.style.display = 'flex';
+                oneofus.style.display = 'none';
+                newHere.style.display = 'flex';
+            });
+        });
+    </script>
   </head>
   <body>
-    <main>
-      <div class="container">
-        <div class="forms-container">
-          <form id="login-form" class="login-form" action="/auth/login" method="post">
-            <h2>Login</h2>
-            <input type="text" placeholder="Username" name="username" required />
-            <input type="password" placeholder="Password" name="password" required />
-            <button type="submit">Login</button>
-            <p class="message">Don't have an account? <a href="#" id="register">Register</a></p>
-          </form>
-          <form id="register-form" class="register-form" action="/auth/register" method="post">
-            <h2>Register</h2>
-            <input type="text" placeholder="Username" name="username" required />
-            <input type="email" placeholder="Email" name="email" required />
-            <input type="password" placeholder="Password" name="password" required />
-            <button type="submit">Register</button>
-            <p class="message">Already have an account? <a href="#" id="login">Login</a></p>
-          </form>
-        </div>
-        <div class="panels-container">
-          <div class="panel right-panel" id="newhere">
-            <div class="content">
-              <h3>New here?</h3>
-              <p>Register now and start exploring!</p>
+    
+        <div class="container">
+            <div class="forms-container">
+                <form id="login-form" class="login-form" action="/auth/login" method="post">
+                    <h2>Login</h2>
+                    <input type="text" placeholder="Username" name="username" required />
+                    <input type="password" placeholder="Password" name="password" required />
+                    <button type="submit">Login</button>
+                    <p class="message">Don't have an account? <a href="#" id="register">Register</a></p>
+                </form>
+                <form id="register-form" class="register-form" action="/auth/register" method="post">
+                    <h2>Register</h2>
+                    <input type="text" placeholder="Username" name="username" required />
+                    <input type="email" placeholder="Email" name="email" required />
+                    <input type="password" placeholder="Password" name="password" required />
+                    <button type="submit">Register</button>
+                    <p class="message">Already have an account? <a href="#" id="login">Login</a></p>
+                </form>
             </div>
-            <img src="img/log.svg" class="image" alt="" />
-          </div>
-          <div class="panel right-panel" id="oneofus">
-            <div class="content">
-              <h3>One of us?</h3>
-              <p>Login to your account.</p>
+            <div class="panels-container">
+                <div class="panel right-panel" id="oneofus">
+                    <div class="content">
+                        <h3>One of us?</h3>
+                        <p>Login to your account.</p>
+                    </div>
+                </div>
+                <div class="panel right-panel" id="newhere">
+                    <div class="content">
+                        <h3>New here?</h3>
+                        <p>Register now and start exploring!</p>
+                    </div>
+                </div>
             </div>
-            <img src="img/register.svg" class="image" alt="" />
-          </div>
-        </div>
-      </div>
-
-      <script src="/authentication.js"></script>
-    </main>
+        </div>    
   </body>
 </html>

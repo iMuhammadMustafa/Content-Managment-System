@@ -1,11 +1,11 @@
 import express from "express";
 const router = express.Router();
 import cookieParser from "cookie-parser";
-
 import UsersRepo from "../Services/UsersRepo.js";
 import PostsRepo from "../Services/PostsRepo.js";
-router.get("/", (req, res) => {
-  res.render("authentification.html", { title: "Authentication", layout: "./Layouts/auth.ejs" });
+
+router.get("/", (req, res) => { 
+    res.render("authentification.html", { title: "Authentication", layout: "./Layouts/auth.ejs" });
 });
 
 router.post("/login", async (req, res) => {
@@ -34,5 +34,10 @@ router.post("/register", async (req, res) => {
   res.cookie("user", userCreated);
   res.render("home.html", { title: "Home", posts, topPosts });
 });
+
+router.get("/logout", async (req, res) => {
+    res.clearCookie("user");
+    res.render("authentification.html", { title: "Authentication", layout: "./Layouts/auth.ejs" });
+})
 
 export default router;

@@ -36,7 +36,16 @@
 
 .navbar-brand img {
   width: 100px; /* Adjust as needed */
+  height: 50px;
 }
+.navbar-brand i {
+  font-size: 1.5rem;
+  /* color: var(--primary); */
+}
+/* .navbar-brand i:hover {
+  color: var(--secondary);
+  transition: all 0.5s;
+} */
 
 .navbar-search {
   position: relative;

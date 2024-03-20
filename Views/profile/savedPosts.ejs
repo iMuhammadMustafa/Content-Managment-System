@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/Styles/profilePages.css" />
+</head>
+<body>
+    <h1>My Saved Posts</h1>
+    <div class="content-container">
+        <% for(let i = 0; i < savedPosts.length; i++) { %>
+        <div class="content">
+            <h3><%= savedPosts[i].title %></h3>
+            <p><%= savedPosts[i].content%></p>
+            <a href="#" class="read-more">Read More</a>
+        </div>
+        <% } %>
+    </div>
+</body>
+</html>

@@ -13,36 +13,37 @@ router.get("/post/:id", async (req, res) => {
 });
 
 // posts per user
-router.get("/admin/posts/:userId", async (req, res) => {
+router.get("/profile/posts/:userId", async (req, res) => {
   const userId = req.params.userId;
-  console.log(userId, "here");
+  // console.log(userId);
   try {
     const posts = await Post.find({ userId: userId });
-    res.json(posts);
+    // console.log(posts);
+    res.render("profile/myPosts.ejs", { posts, title: "My Posts" });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
 });
 
 // comments per user
-router.get("/admin/comments/:userId", async (req, res) => {
+router.get("/profile/comments/:userId", async (req, res) => {
   const userId = req.params.userId;
   try {
     const comments = await Comment.find({ userId: userId });
-    res.json(comments);
+    res.render("profile/myComments.ejs", { comments, title: "My Comments" });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
 });
 
 // saved posts
-router.get("/admin/savedPosts/:userId", async (req, res) => {
+router.get("/profile/savedPosts/:userId", async (req, res) => {
   const userId = req.params.userId;
-  console.log(userId);
+  // console.log(userId);
   try {
     const savedPosts = await Post.find({ savedBy: { $in: [`${userId}`] } });
-    console.log(savedPosts);
-    res.json(savedPosts);
+    // console.log(savedPosts);
+    res.render("profile/savedPosts.ejs", { savedPosts, title: "My Saved Posts" });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

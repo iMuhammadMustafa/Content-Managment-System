@@ -1,14 +1,14 @@
-const express = require('express');
+import express from "express";
 const router = express.Router();
-const User = require('../models/User.js');
+import UserRepo from "../Services/UsersRepo.js";
 
 // Route to fetch user profile by userId
-router.get('/admin/profile/:userId', async (req, res) => {
+router.get('/profile/profile/:userId', async (req, res) => {
   const userId = req.params.userId;
-  console.log(userId, "here");
+  // console.log(userId, "here --------------------- ");
   try {
-    const user = await User.findById(userId);
-    res.json(user); 
+    const user = await UserRepo.getUserById(userId);
+    res.render('profile/myProfile.ejs', { user, title: 'Profile' });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

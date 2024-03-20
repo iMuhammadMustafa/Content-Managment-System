@@ -35,10 +35,12 @@ import homepageRouter from "./Routes/HomepageRoutes.js";
 import authRouter from "./Routes/AuthRoutes.js";
 import postsRouter from "./Routes/PostsRoutes.js";
 import adminRouter from "./Routes/AdminRoutes.js";
+import userRouter from "./Routes/UserRoutes.js";
 import { addUserFromCookie } from "./Middlewares/authMiddleware.js";
 
 app.use(addUserFromCookie);
 app.use(homepageRouter);
 app.use("/auth", authRouter);
 app.use(postsRouter);
+app.use(userRouter);
 app.use("/profile", adminRouter);

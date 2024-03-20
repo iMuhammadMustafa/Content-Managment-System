@@ -22,7 +22,7 @@
           <div class="post">
             <h3><%= topPosts[i].title %></h3>
             <p class="top-post-content"><%= topPosts[i].content%></p>
-            <a href="/post/<%= posts[i]._id %>" class="read-more">Read More</a>
+            <a href="/post/<%= topPosts[i]._id %>" class="read-more">Read More</a>
           </div>
           <% } %>
         </div>

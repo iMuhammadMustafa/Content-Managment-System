@@ -27,7 +27,7 @@ router.post("/search", (req, res) => {
   PostsRepo.searchPosts(search)
     .then(posts => {
       console.log(posts);
-      res.render("search", { title: "Search", posts });
+      res.render("Posts/search", { title: "Search", posts });
     })
     .catch(err => {
       console.error(err);

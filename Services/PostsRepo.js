@@ -40,4 +40,15 @@ export default class PostsRepo {
       }).sort({ rating: -1 }).limit(10); // Example: Sort by likes and limit to top 10 posts
   
   }
+
+  static async searchPosts(search){
+    return await Post.find({
+      $or: [
+        { title: { $regex: search, $options: 'i' } },
+        { category: { $regex: search, $options: 'i' } }, 
+        { tags: { $regex: search, $options: 'i' } } 
+      ]
+    });
+  }
+
 }

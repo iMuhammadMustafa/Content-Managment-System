@@ -9,8 +9,10 @@
       <a href="/about">About</a>
     </div>
     <div class="navbar-search">
-      <input type="text" placeholder="Search..." />
-      <button type="submit">Search</button>
+      <form action="/search" method="post">
+        <input type="text" placeholder="Search..." name="search" />
+        <button type="submit">Search</button>
+      </form>
     </div>
     <div class="navbar-buttons">
       <% if (user) { %>
@@ -18,8 +20,7 @@
       <a href="/myposts">My Posts</a>
       <a href="/auth/logout">Logout</a>
       <% } else { %>
-      <a href="#" class="btn-login">Login</a>
-      <a href="#" class="btn-register">Register</a>
+      <a href="/auth" class="btn-login">Login</a>
       <% } %>
     </div>
   </nav>

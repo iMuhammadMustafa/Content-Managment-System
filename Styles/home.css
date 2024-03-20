@@ -121,3 +121,19 @@ h2 {
   text-decoration: none;
   margin-top: 10px;
 }
+
+.create-button {
+  width: 100px;
+  padding: 10px;
+  margin: 10px 0;
+  background-color: #1cbbb4;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.create-button:hover {
+  background-color: #154653;
+}

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <main>
+        <section class="new-posts">
+            <h2>Result : </h2>
+            <div class="post-container">
+              <% for(let i = 0; i < posts.length; i++) { %>
+                <div class="post">
+                  <h3><%= posts[i].title %></h3>
+                  <p><%= posts[i].content%></p>
+                  <a href="#" class="read-more">Read More</a>
+                </div>
+                <% } %>
+            </div>
+          </section>
+    </main>
+</body>
+</html>

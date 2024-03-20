@@ -18,7 +18,7 @@ router.post("/login", async (req, res) => {
   let topPosts = await PostsRepo.getTopPostsThisWeek();
   let posts = await PostsRepo.getPosts();
   res.cookie("user", user);
-  res.render("home.html", { title: "Home", posts, topPosts });
+  res.render("home.html", { title: "Home", posts, topPosts, user });
 });
 
 router.post("/register", async (req, res) => {
@@ -32,7 +32,7 @@ router.post("/register", async (req, res) => {
   let posts = await PostsRepo.getPosts();
   let topPosts = await PostsRepo.getTopPostsThisWeek();
   res.cookie("user", userCreated);
-  res.render("home.html", { title: "Home", posts, topPosts });
+  res.render("home.html", { title: "Home", posts, topPosts, userCreated });
 });
 
 router.get("/logout", async (req, res) => {

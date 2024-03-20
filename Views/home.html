@@ -7,6 +7,9 @@
   </head>
   <body>
     <main>
+      <% if(user){ %>
+      <button class="create-button" onclick="window.location.href='/post/create/<%=user._id%>'" style="margin-bottom: 20px;">Create Post</button>
+      <%} %>
       <section class="top-posts">
         <h2>Top Posts This Week</h2>
         <div class="post-container">
@@ -14,7 +17,7 @@
           <div class="post">
             <h3><%= topPosts[i].title %></h3>
             <p><%= topPosts[i].content%></p>
-            <a href="#" class="read-more">Read More</a>
+            <a href="/post/<%= posts[i]._id %>" class="read-more">Read More</a>
           </div>
           <% } %>
         </div>
@@ -26,7 +29,7 @@
             <div class="post">
               <h3><%= posts[i].title %></h3>
               <p><%= posts[i].content%></p>
-              <a href="#" class="read-more">Read More</a>
+              <a href="/post/<%= posts[i]._id %>" class="read-more">Read More</a>
             </div>
             <% } %>
         </div>

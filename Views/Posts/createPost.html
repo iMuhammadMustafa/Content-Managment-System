@@ -1,0 +1,59 @@
+
+
+    <style>
+       
+        h1 {
+            color: #333;
+        }
+
+        .createForm {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .createForm [type="text"],
+        .createForm input[type="password"],
+        .createForm textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .createbtn{
+            padding: 10px 20px;
+            background-color: #1cbbb4;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .createbtn:hover {
+            background-color: #154653;
+        }
+    </style>
+    <section style="margin: 50px;">
+        <h1>Create a New Post</h1>
+        <form class="createForm" action="/post/postCreated/<%= userId%>" method="POST">
+            <label for="title">Title:</label>
+            <input type="text" id="title" name="title" required><br>
+            <label for="content">Content:</label>
+            <textarea id="content" name="content" required></textarea><br>
+            <label for="category">Category:</label>
+            <input type="text" id="category" name="category"><br>
+            <label for="tags">Tags (comma-separated):</label>
+            <input type="text" id="tags" name="tags"><br>
+            <button class="createbtn" type="submit">Create Post</button>
+        </form>
+    </section>
+    

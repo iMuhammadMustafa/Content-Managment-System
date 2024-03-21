@@ -13,9 +13,9 @@ export default class PostsRepo {
     return await Post.findById(id);
   }
   static async getPostDtoById(id) {
-    return await Post.findById(id)
-      .select("_id title content published userId category tags createdAt updatedAt rating")
-      .populate("comments", "content userId");
+    return await Post.findById(id).select(
+      "_id title content published userId category tags createdAt updatedAt rating"
+    );
   }
 
   static async createPost(post) {

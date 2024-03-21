@@ -1,7 +1,7 @@
 <h1>Edit Post</h1>
 
 <div class="form-wrapper">
-  <form action="/admin/posts/edit" method="POST">
+  <form action="/profile/posts/edit" method="POST">
     <input type="hidden" name="_id" value="<%= post._id %>" />
     <div class="form-input">
       <label for="title">Title</label>
@@ -30,7 +30,7 @@
     </div>
     <div class="form-input">
       <input type="submit" value="Save" />
-      <a id="back" href="/admin/posts">Back</a>
+      <a id="back" href="/profile/posts">Back</a>
     </div>
   </form>
 </div>

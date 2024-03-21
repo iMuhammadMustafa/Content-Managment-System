@@ -32,14 +32,14 @@ router.post("/users/edit", async (req, res) => {
 
   await UsersRepo.updateUser(user._id, user);
 
-  res.redirect("/admin/users");
+  res.redirect("/profile/users");
 });
 router.get("/users/delete/:userId", async (req, res) => {
   const userId = req.params.userId;
 
   await UsersRepo.deleteUser(userId);
 
-  res.redirect("/admin/users");
+  res.redirect("/profile/users");
 });
 
 router.get("/posts", async (req, res) => {
@@ -66,14 +66,14 @@ router.post("/posts/edit", async (req, res) => {
 
   await PostsRepo.updatePost(post._id, post);
 
-  res.redirect("/admin/posts");
+  res.redirect("/profile/posts");
 });
 router.get("/posts/delete/:postId", async (req, res) => {
   const postId = req.params.postId;
 
   await PostsRepo.deletePost(postId);
 
-  res.redirect("/admin/posts");
+  res.redirect("/profile/posts");
 });
 
 router.get("/comments", async (req, res) => {
@@ -98,7 +98,7 @@ router.post("/comments/edit", async (req, res) => {
 
   await CommentsRepo.updateComment(comment._id, comment);
 
-  res.redirect("/admin/comments");
+  res.redirect("/profile/comments");
 });
 
 router.get("/comments/delete/:commentId", async (req, res) => {
@@ -106,7 +106,7 @@ router.get("/comments/delete/:commentId", async (req, res) => {
 
   await CommentsRepo.deleteComment(commentId);
 
-  res.redirect("/admin/comments");
+  res.redirect("/profile/comments");
 });
 
 export default router;

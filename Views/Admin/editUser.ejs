@@ -1,7 +1,7 @@
 <h1><%= title %></h1>
 
 <div class="form-wrapper">
-  <form action="/admin/users/edit" method="post">
+  <form action="/profile/users/edit" method="post">
     <input type="text" hidden name="_id" value="<%= user._id %>" />
     <div class="form-input">
       <label for="username">Username</label>
@@ -22,7 +22,7 @@
     </div>
     <div class="form-input">
       <input type="submit" value="Save" />
-      <a id="back" href="/admin/users">Back</a>
+      <a id="back" href="/profile/users">Back</a>
     </div>
   </form>
 </div>

@@ -15,16 +15,16 @@
       <% users.forEach(function(user) { %>
       <tr>
         <td>
-          <a href="/admin/users/edit/<%= user.id %>"><%= user.id %></a>
+          <a href="/profile/users/edit/<%= user.id %>"><%= user.id %></a>
         </td>
         <td><%= user.username %></td>
         <td><%= user.email %></td>
         <td><%= user.role %></td>
         <td>
-          <a href="/admin/users/edit/<%= user.id %>" title="Edit">
+          <a href="/profile/users/edit/<%= user.id %>" title="Edit">
             <i class="fa-regular fa-pen-to-square"></i>
           </a>
-          <a href="/admin/users/delete/<%= user.id %>" title="Delete">
+          <a href="/profile/users/delete/<%= user.id %>" title="Delete">
             <i class="fa-solid fa-trash-can"></i>
           </a>
         </td>

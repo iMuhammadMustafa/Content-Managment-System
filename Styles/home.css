@@ -76,8 +76,44 @@ h2 {
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 10; /* Number of lines to show */
+  -webkit-line-clamp: 20; /* Number of lines to show */
   -webkit-box-orient: vertical;
+}
+
+.post-img {
+  width: 100%;
+  height: 500px;
+  border-radius: 5px;
+}
+.post-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.post-author {
+  display: flex;
+  align-items: center;
+}
+.post-cat {
+  /* position: absolute;
+  bottom: 5px;
+  right: 10px;
+  border: 1px solid #1a2e35;
+  border-radius: 5px;
+  padding: 0px; */
+}
+.post-cat p {
+  /* padding: 1px; */
+  /* margin: 5px; */
+}
+.post-data {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
 }
 
 .post {
@@ -125,6 +161,7 @@ h2 {
   background-color: #ffffff;
   width: 100%; /* Set the width to 100% */
   box-sizing: border-box; /* Include padding in the width calculation */
+  position: relative;
 }
 
 .new-posts .post h3 {

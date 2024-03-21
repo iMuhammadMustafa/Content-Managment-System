@@ -4,6 +4,7 @@ const { Schema, model } = mongoose;
 const postSchema = new Schema({
   title: String,
   content: String,
+  coverImgUrl: String,
   published: Boolean,
   userId: { type: Schema.Types.ObjectId, ref: "User" },
   category: String,

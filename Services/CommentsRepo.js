@@ -8,6 +8,10 @@ export default class CommentsRepo {
     return await Comment.find().select("_id content userId postId createdAt updatedAt rating");
   }
 
+  static async getCommentsByPostId(postId) {
+    return await Comment.find({ postId: postId }).populate("userId");
+  }
+
   static async getCommentById(id) {
     return await Comment.findById(id).populate("userId").populate("postId");
   }

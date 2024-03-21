@@ -2,7 +2,7 @@ import Post from "../Models/Post.js";
 
 export default class PostsRepo {
   static async getPosts() {
-    return await Post.find();
+    return await Post.find().populate("userId", "username");
   }
 
   static async getPostsDto() {
@@ -13,9 +13,9 @@ export default class PostsRepo {
     return await Post.findById(id);
   }
   static async getPostDtoById(id) {
-    return await Post.findById(id).select(
-      "_id title content published userId category tags createdAt updatedAt rating"
-    );
+    return await Post.findById(id)
+      .select("_id title content published userId category tags createdAt updatedAt rating")
+      .populate("comments", "content userId");
   }
 
   static async createPost(post) {

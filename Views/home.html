@@ -33,6 +33,18 @@
           <% for(let i = 0; i < posts.length; i++) { %>
           <div class="post">
             <h3><%= posts[i].title %></h3>
+
+            <div class="post-img">
+              <img src="<%= posts[i].coverImgUrl %>" alt="<%= posts[i].title %>" />
+            </div>
+            <div class="post-data">
+              <!-- <p><%# posts[i].userId.username %></p> -->
+              <!-- <p><%# posts[i].createdAt %></p> -->
+              <div class="post-cat">
+                <p><%= posts[i].category %></p>
+              </div>
+              <p><%= posts[i].rating%> Likes</p>
+            </div>
             <p class="new-post-content"><%= posts[i].content%></p>
             <a href="/post/<%= posts[i]._id %>" class="read-more">Read More</a>
           </div>

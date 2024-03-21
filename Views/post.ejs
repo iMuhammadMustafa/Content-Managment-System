@@ -1,55 +1,88 @@
-
 <style>
-    .article {
-        border: 1px solid black;
-        padding: 10px;
-        margin-top: 20px;
-        margin-bottom: 20px;
-        border-radius: 5px;
-        background-color: #f0f0f0;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        transition: all 0.3s ease-in-out;
-        width: 100%;
-        max-width: 500px;
-        margin: 0 auto;
-    }
-    .details {
-        margin-top: 20px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
-        width: 100%;
-        max-width: 500px;
-        margin: 0 auto;
-    }
+  .article {
+    border: 1px solid black;
+    padding: 10px;
+    /* margin-top: 20px; */
+    /* margin-bottom: 20px; */
+    border-radius: 5px;
+    background-color: #f0f0f0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+    width: 80%;
+    /* max-width: 500px; */
+    margin: 0 auto;
+  }
+  .details {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+  }
 
-    h1 {
-        text-align: center;
-        margin-bottom: 20px;
-        color: #1a2e35;
-        font-weight: bold;
-        font-size: 24px;
-        text-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        transition: all 0.3s ease-in-out;
-        margin-top: 20px;
-        margin-bottom: 20px;
-        border-radius: 5px;
-        background-color: #f0f0f0;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        transition: all 0.3s ease-in-out;
-    }
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #1a2e35;
+    font-weight: bold;
+    font-size: 24px;
+    /* text-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+    transition: all 0.3s ease-in-out;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    /* background-color: #f0f0f0; */
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+    transition: all 0.3s ease-in-out;
+  }
+
+  .comments {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f0f0f0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: auto;
+    width: 80%;
+  }
+  .cover-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+  }
 </style>
 <h1><%= data.title %></h1>
 <article class="article">
-    <p><%= data.content %></p>
+  <div class="cover-img">
+    <img src="<%= data.coverImgUrl %>" alt="<%= data.title %>" />
+  </div>
+
+  <p><%= data.content %></p>
 </article>
 <div class="details">
-    <p><%= data.category %></p>
-    <p><%= data.tags %></p>
-    <p><%= data.rating %></p>
-    <p><%= data.published %></p>
-    <p><%= data.createdAt %></p>
-    <p><%= data.updatedAt %></p>
+  <p>Category: <%= data.category %></p>
+  <p>Tags: <%= data.tags %></p>
+  <p>Likes: <%= data.rating %></p>
+  <p>Date: <%= data.createdAt %></p>
+</div>
+
+<div class="comments">
+  <h2>Comments</h2>
+  <!-- <form action="/comment" method="POST">
+    <input type="hidden" name="postId" value="<%= data._id %>" />
+    <input type="text" name="comment" placeholder="Write a comment" />
+    <button type="submit">Comment</button>
+  </form> -->
+  <ul>
+    <% comments.forEach(comment => { %>
+    <li><%= comment.userId.username %></li>
+    <li><%= comment.content %></li>
+    <% }) %>
+  </ul>
 </div>

@@ -1,21 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" type="text/css" href="/Styles/profilePages.css" />
-</head>
-<body>
+  </head>
+  <style>
+    .limit-lines {
+      display: -webkit-box;
+      -webkit-line-clamp: 10;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+  </style>
+  <body>
     <h1>My Posts</h1>
     <div class="content-container">
-        <% for(let i = 0; i < posts.length; i++) { %>
-        <div class="content">
-            <h3><%= posts[i].title %></h3>
-            <p><%= posts[i].content%></p>
-            <a href="/post/<%= posts[i]._id %>" class="read-more">Read More</a>
+      <% for(let i = 0; i < posts.length; i++) { %>
+      <div class="content">
+        <h3><%= posts[i].title %></h3>
+        <div class="limit-lines">
+          <p><%= posts[i].content%></p>
         </div>
-        <% } %>
+        <a href="/post/<%= posts[i]._id %>" class="read-more">Read More</a>
+      </div>
+      <% } %>
     </div>
-</body>
+  </body>
 </html>

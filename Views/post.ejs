@@ -10,7 +10,7 @@
     transition: all 0.3s ease-in-out;
     width: 80%;
     /* max-width: 500px; */
-    margin: 0 auto;
+    margin: 10px auto;
   }
   .details {
     margin-top: 20px;
@@ -56,21 +56,28 @@
     align-items: center;
     margin-bottom: 20px;
   }
+  /* .details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 00px;
+  } */
 </style>
 <h1><%= data.title %></h1>
-<article class="article">
+<article class="article" style="margin">
   <div class="cover-img">
     <img src="<%= data.coverImgUrl %>" alt="<%= data.title %>" />
   </div>
 
   <p><%= data.content %></p>
+  <div class="details">
+    <p style="margin: 0">Category: <%= data.category %></p>
+    <p style="margin: 0">Tags: <%= data.tags %></p>
+    <p style="margin: 0">Likes: <%= data.rating %></p>
+    <!-- <p>Date: <%# data.createdAt %></p> -->
+  </div>
 </article>
-<div class="details">
-  <p>Category: <%= data.category %></p>
-  <p>Tags: <%= data.tags %></p>
-  <p>Likes: <%= data.rating %></p>
-  <p>Date: <%= data.createdAt %></p>
-</div>
 
 <div class="comments">
   <h2>Comments</h2>
